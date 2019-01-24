@@ -1,0 +1,34 @@
+package pl.edu.pw.ii.pte.junit.inheritance;
+
+import org.junit.Assert;
+import org.junit.Test;
+
+public class TestClass {
+
+	
+	@Test
+	public void czyZgadzaSieNazwisko() {
+		
+		Manager boss = new Manager("Carl Cracker", 0, 1987, 12, 15);
+		
+		
+		Assert.assertEquals("Carl Cracker", boss.getName());
+	}
+	
+	@Test
+	public void czyZgadzaSieWynagrodzenie(){
+		Manager boss = new Manager("Carl Cracker", 10, 1987, 12, 15);
+		
+		Assert.assertEquals(10, boss.getSalary(),0);
+		
+	}
+	
+	@Test
+	public void czyZgadzaSieRokZatrudnienia(){
+		Manager boss = new Manager("Carl Cracker", 10, 1987, 12, 15);
+		
+		Assert.assertEquals((1987,12,15), boss.getHireDay());
+		
+	}
+	
+}
