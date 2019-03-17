@@ -107,6 +107,7 @@ public class StackTests {
 		assertEquals(5, s.getSize());
 	}
 
+
 	@Test
 	public void sizeOfStackIsFull1() {
 		Stack s = new Stack();
@@ -124,7 +125,7 @@ public class StackTests {
 		s.pop();
 		assertEquals(false, s.isFull());
 	}
-
+	
 	@Test
 	public void peekTheLastValueIsNine() {
 		Stack s = new Stack();
@@ -133,30 +134,29 @@ public class StackTests {
 		s.pop();
 		assertEquals(9, s.peek());
 	}
-
+	
 	@Test
 	public void peekTheFirstValueIsZero() {
 		Stack s = new Stack();
 
 		assertEquals(0, s.peek());
 	}
-
-	@Test(expected = EmptyStackException.class)
+	
+	@Test (expected = EmptyStackException.class)
 	public void peekTheStackIsEmpty() {
 		Stack s = new Stack();
 		s.pop();
 		assertEquals(-1, s.peek());
 	}
-
-	@Test
-	public void isStackResizing() {
+	
+	@Test (expected=ArrayIndexOutOfBoundsException.class)
+	public void isErrorWhenCapacityOfResizeStackIsLessThenSize() {
 		Stack s = new Stack();
 		for (int i = 0; i < Stack.MAXIMUM_CAPACITY; ++i)
 			s.push(i);
-		s.resize(20);
-		s.push(1);
+		s.resizeStack();
 		s.push(2);
-		assertEquals(12, s.getSize());
+		assertEquals(11, s.getSize());
 	}
 
 }

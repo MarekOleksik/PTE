@@ -15,8 +15,10 @@ public class Stack {
 	}
 
 	public void push(int i) {
-		if (size == contents.length) {
-			resize(2*contents.length);
+		if (size == MAXIMUM_CAPACITY) {
+			resizeStack();
+			size++;
+			//throw new BufferOverflowException();
 		}
 		contents[size++] = i;
 	}
@@ -46,11 +48,11 @@ public class Stack {
 		return contents[size];
 	}
 
-	public void resize(int max) {
-		int[] temp = new int[max];
+	public void resizeStack() {
+		int[] temp = new int[size+1];
 		for (int i = 0; i < size; i++) {
 			temp[i] = contents[i];
-		}
+			temp[i]++;	}
 		contents = temp;
 	}
 	     }

@@ -149,7 +149,7 @@ public class StackTests {
 	}
 
 	@Test
-	public void isStackResizing() {
+	public void isStackIsResizing() {
 		Stack s = new Stack();
 		for (int i = 0; i < Stack.MAXIMUM_CAPACITY; ++i)
 			s.push(i);
